@@ -1,19 +1,33 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
-type Props = {};
-export default function BlogPost({}: Props) {
+async function getData(id: string) {
+	const res = await fetch(
+		`https://jsonplaceholder.typicode.com/posts/${id}`,
+		{
+			cache: 'no-cache',
+		}
+	);
+
+	if (!res.ok) {
+		notFound();
+	}
+
+	return res.json();
+}
+
+export default async function BlogPost({
+	params: { id },
+}: {
+	params: { id: string };
+}) {
+	const data: Blog = await getData(id);
 	return (
 		<div className="">
 			<div className="flex gap-4">
 				<div className="flex-1 flex flex-col gap-5">
-					<h1 className="text-4xl font-bold">
-						Lorem ipsum dolor sit amet consectetur.
-					</h1>
-					<p className="font-light text-xl">
-						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit. Sunt vel quasi nostrum perspiciatis repellat
-						laudantium, hic recusandae eveniet repudiandae eaque.
-					</p>
+					<h1 className="text-4xl font-bold">{data.title}</h1>
+					<p className="font-light text-xl">{data.body}</p>
 					<div className="flex gap-4 items-center">
 						<div className="h-10 w-10 rounded-full relative overflow-hidden">
 							<Image

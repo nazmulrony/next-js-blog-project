@@ -10,7 +10,7 @@ export default function About({}: Props) {
 					src="https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 					alt=""
 					fill={true}
-					className=" grayscale"
+					className=" grayscale object-cover"
 				/>
 				<div className="absolute left-5 bottom-5 bg-[#53c28b] py-1 px-2 text-white">
 					<h1 className="text-2xl font-bold">Digital Storytellers</h1>

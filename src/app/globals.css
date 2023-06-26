@@ -3,20 +3,31 @@
 @tailwind utilities;
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 html,
 body {
-    max-width: 100vw;
-    overflow-x: hidden;
-    background-color: #111;
-    color: #bbb;
+	max-width: 100vw;
+	overflow-x: hidden;
+	/* background-color: #3f3939;
+	color: #bbb; */
+}
+.dark {
+	background-color: #111;
+	color: #bbb;
+}
+.light {
+	background-color: white;
+	color: #111;
+}
+.theme {
+	transition: 1s all ease;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+	text-decoration: none;
+	color: inherit;
 }

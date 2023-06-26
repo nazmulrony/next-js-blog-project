@@ -39,7 +39,7 @@ export default function BlogPost({}: Props) {
 					/>
 				</div>
 			</div>
-			<div className=" mt-12 text-xl font-light text-[#999] text-justify">
+			<div className=" mt-12 text-xl font-light text-justify">
 				<p className="">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Atque minus ratione libero incidunt eum velit quisquam harum

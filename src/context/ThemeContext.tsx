@@ -20,7 +20,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 	return (
 		<ThemeContext.Provider value={{ mode, toggleMode }}>
-			{children}
+			<div
+				// className={`${
+				// 	mode === 'dark'
+				// 		? 'bg-black text-[#bbbbbb]'
+				// 		: 'bg-white text-[#111]'
+				// }`}
+				// className="bg-black text-white"
+				className={`theme ${mode}`}
+			>
+				{children}
+			</div>
 		</ThemeContext.Provider>
 	);
 };

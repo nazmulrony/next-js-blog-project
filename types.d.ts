@@ -1,6 +1,17 @@
 type Blog = {
-	userId: number;
-	id: number;
-	title: string;
-	body: string;
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+};
+
+type ItemCategory = {
+    id: number;
+    title: string;
+    desc: string;
+    image: string;
+};
+
+type Items = {
+    [key: string]: ItemCategory[];
 };

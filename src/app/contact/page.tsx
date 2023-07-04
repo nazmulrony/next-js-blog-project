@@ -1,8 +1,12 @@
-import Button from '@/components/button/Button';
-import Image from 'next/image';
+import Button from "@/components/button/Button";
+import Image from "next/image";
 
-type Props = {};
-export default function Contact({}: Props) {
+export const metadata = {
+    title: "Rony | Contact",
+    description: "This is contact page",
+};
+
+export default function Contact() {
     return (
         <div>
             <h1 className="text-6xl mb-24 text-center font-bold">

@@ -11,8 +11,8 @@ export default function DarkModeToggle() {
             className="w-11 h-6 p-[2px] border-[1.5px] border-[#53c28b70] rounded-[30px] flex items-center justify-between cursor-pointer relative"
             onClick={toggleMode}
         >
-            <div className="text-sm">🌙</div>
-            <div className="text-sm">🔆</div>
+            <div className="text-[12px]">🌙</div>
+            <div className="text-[12px]">🔆</div>
             <div
                 className={`${
                     mode === "dark" ? "left-[2px]" : "right-[2px]"

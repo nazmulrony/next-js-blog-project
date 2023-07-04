@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+    title: "Rony | Blog",
+    description: "This is blog page",
+};
+
 async function getData() {
     const res = await fetch("http://localhost:3000/api/posts", {
         cache: "no-cache",
@@ -16,20 +21,18 @@ async function getData() {
 }
 
 export default async function Blog() {
-    const blogs: Blog[] = await getData();
+    const posts: Post[] = await getData();
     return (
         <div>
-            {blogs.map((blog) => (
+            {posts.map((post) => (
                 <Link
-                    href={`/blog/${blog.id}`}
-                    key={blog.id}
+                    href={`/blog/${post._id}`}
+                    key={post._id}
                     className="flex gap-12 mt12 mb-24 "
                 >
                     <div className=" h-[300px] relative">
                         <Image
-                            src={
-                                "https://images.pexels.com/photos/3110502/pexels-photo-3110502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            }
+                            src={post.img}
                             alt=""
                             className="object-cover"
                             width={400}
@@ -37,8 +40,8 @@ export default async function Blog() {
                         />
                     </div>
                     <div className="flex-1 flex flex-col gap-5 justify-center">
-                        <h1 className="text-4xl font-bold">{blog.title}</h1>
-                        <p>{blog.body}</p>
+                        <h1 className="text-4xl font-bold">{post.title}</h1>
+                        <p>{post.desc}</p>
                         <Button>See More</Button>
                     </div>
                 </Link>

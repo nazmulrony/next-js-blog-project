@@ -1,7 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-type Props = {};
-export default function Portfolio({}: Props) {
+export const metadata = {
+    title: "Rony | Portfolio",
+    description: "This is portfolio page",
+};
+export default function Portfolio() {
     return (
         <div>
             <h1 className=" text-3xl mb-5 font-bold ">Choose a gallery</h1>

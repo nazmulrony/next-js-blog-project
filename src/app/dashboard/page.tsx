@@ -1,16 +1,20 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import useSWR, { Fetcher } from "swr";
 
-//typescript version of SWR
 export default function Dashboard() {
-    const fetcher: Fetcher<Blog[]> = (apiUrl: string) =>
-        fetch(apiUrl).then((res) => res.json());
+    const session = useSession();
+    console.log(session);
 
-    const { data, error, isLoading } = useSWR<Blog[]>(
-        "https://jsonplaceholder.typicode.com/posts",
-        fetcher
-    );
-    console.log(data);
+    //typescript version of SWR
+    // const fetcher: Fetcher<Blog[]> = (apiUrl: string) =>
+    //     fetch(apiUrl).then((res) => res.json());
+
+    // const { data, error, isLoading } = useSWR<Blog[]>(
+    //     "https://jsonplaceholder.typicode.com/posts",
+    //     fetcher
+    // );
+    // console.log(data);
     return <div>Dashboard</div>;
 }

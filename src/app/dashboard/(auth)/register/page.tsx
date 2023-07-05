@@ -39,7 +39,7 @@ export default function Register() {
 					type="text"
 					className=" p-5 bg-transparent border-2 border-[#bbb] rounded text-xl font-bold"
 					required
-					placeholder="username"
+					placeholder="name"
 				/>
 				<input
 					type="email"
@@ -53,11 +53,14 @@ export default function Register() {
 					required
 					placeholder="password"
 				/>
+				{error && <p className="text-red-500">Something went wrong!</p>}
+				<button
+					type="submit"
+					className="w-[300px] p-5 cursor-pointer bg-[#53c28b] border-none rounded text-[#eee] font-bold"
+				>
+					Register
+				</button>
 			</form>
-			{error && <p className="text-red-500">Something went wrong!</p>}
-			<button className="w-[300px] p-5 cursor-pointer bg-[#53c28b] border-none rounded text-[#eee] font-bold">
-				Register
-			</button>
 			<Link href="/dashboard/login">Login with an existing account.</Link>
 		</div>
 	);

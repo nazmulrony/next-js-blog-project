@@ -28,7 +28,7 @@ export default async function Blog() {
 				<Link
 					href={`/blog/${post._id}`}
 					key={post._id}
-					className="flex gap-12 mt12 mb-24 "
+					className="flex gap-12 mt12 mb-24 items-start "
 				>
 					<div className=" h-[300px] relative">
 						<Image

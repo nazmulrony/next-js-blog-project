@@ -61,7 +61,9 @@ export default function Register() {
 					Register
 				</button>
 			</form>
-			<Link href="/dashboard/login">Login with an existing account.</Link>
+			<Link className="hover:text-[#53c28b]" href="/dashboard/login">
+				Login with an existing account.
+			</Link>
 		</div>
 	);
 }

@@ -1,8 +1,12 @@
 'use client';
-import { signIn } from 'next-auth/react';
-import { FormEvent } from 'react';
+import { signIn, useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FormEvent, useEffect } from 'react';
 
 export default function Login() {
+	const session = useSession();
+	const router = useRouter();
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		const formElement = e.target as HTMLFormElement;
@@ -11,6 +15,13 @@ export default function Login() {
 		console.log(email, password);
 		signIn('credentials', { email, password });
 	};
+
+	//useEffect was used to avoid a warning
+	useEffect(() => {
+		if (session.status === 'authenticated') {
+			router.push('/dashboard');
+		}
+	}, [router, session?.status]);
 
 	return (
 		<div className="grid place-items-center">
@@ -35,7 +46,7 @@ export default function Login() {
 					type="submit"
 					className="w-[300px] p-5 cursor-pointer bg-[#53c28b] border-none rounded text-[#eee] font-bold"
 				>
-					Register
+					Login
 				</button>
 			</form>
 			<button
@@ -44,6 +55,15 @@ export default function Login() {
 			>
 				Login with Google
 			</button>
+			<p className="my-6">
+				New to Devs Blog?
+				<Link
+					className="ml-1 hover:text-[#53c28b]"
+					href="/dashboard/register"
+				>
+					Register
+				</Link>
+			</p>
 		</div>
 	);
 }

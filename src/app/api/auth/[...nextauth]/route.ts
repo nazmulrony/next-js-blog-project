@@ -15,7 +15,7 @@ const handler = NextAuth({
 			id: 'credentials',
 			name: 'Credentials',
 			credentials: {},
-			//next line will throw an error until I return the user
+			//next line will throw an ts error until I return the user
 			async authorize(credentials) {
 				await connect();
 				const { email, password } = credentials as {

@@ -11,9 +11,12 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 async function getData() {
-	const res = await fetch('http://localhost:3000/api/posts', {
-		cache: 'no-cache',
-	});
+	const res = await fetch(
+		'https://next-js-blog-project-phi.vercel.app/api/posts',
+		{
+			cache: 'no-cache',
+		}
+	);
 
 	if (res.ok) {
 		return res.json();

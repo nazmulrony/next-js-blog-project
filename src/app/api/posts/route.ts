@@ -24,10 +24,10 @@ export async function GET(request: Request) {
 export const POST = async (request: Request) => {
 	const postData = await request.json();
 
-	const newPost = new Post(postData);
-	console.log(newPost);
 	try {
 		await connect();
+		const newPost = new Post(postData);
+		console.log(newPost);
 		await newPost.save();
 		return new NextResponse('post has been created', { status: 201 });
 	} catch (err) {

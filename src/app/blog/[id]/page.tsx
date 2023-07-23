@@ -7,6 +7,8 @@ type Props = {
 	};
 };
 
+export const dynamic = 'force-dynamic';
+
 async function getData(id: string) {
 	const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
 		cache: 'no-cache',
